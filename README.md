@@ -1,6 +1,6 @@
 # TTGOwateringsystem
 
-  The goal of this project is to create a sensoring system that controls my watering system (a rainbird raincomputer)
+  The goal of this project is to create a wireless sensoring system that controls my watering system (a rainbird raincomputer)
   Whenever one of the soilsensors signals the ground is to dry it triggers a relay that gives input to the raincomputer  
 
   But first I built a testing system. I started with these 3 modules of prox 12 euro each
