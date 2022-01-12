@@ -36,3 +36,6 @@
   - a continous measuring mode
   - a sleep mode option to save battery. Set go2sleep = true and sleeptime to nr. of milliseconds. 
     After that time readings are stored to eeprom and read from eeprom when starting up
+    
+    Next step is to create the base (client) station with humidity threshold setup and a relais
+    
