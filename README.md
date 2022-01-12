@@ -1,3 +1,5 @@
+##### THIS IS WORK IN PROGRESS - NOT FINISHED YET #####
+
   The goal of this project is to create a wireless sensoring system that controls my watering system (a rainbird raincomputer)
   Whenever one of the soilsensors signals the ground is to dry it triggers a relay that gives input to the raincomputer  
 
