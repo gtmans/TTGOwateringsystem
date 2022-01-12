@@ -8,9 +8,9 @@
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME280.h>
-#include "gewoon_secrets.h"
+#include "secrets.h"
 /*
-// gewoon_secrets.h: wifi passwords and weather.api get yours at api.openweathermap.org
+// secrets.h: wifi passwords and weather.api get yours at api.openweathermap.org
 const char* ssid     = "mySSID";        
 const char* password = "myWIFIpassword";
 String town="Apeldoorn";//weather api           
