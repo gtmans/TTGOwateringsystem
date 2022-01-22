@@ -82,9 +82,9 @@ bool    sensor2serverup;
 U8G2_SSD1306_128X32_UNIVISION_F_SW_I2C u8g2(U8G2_R0, OLED_SCL, OLED_SDA , OLED_RST);
 
 //WIFI configuration
-#include "gewoon_secrets.h"
+#include "secrets.h"
 /*
-// gewoon_secrets.h: wifi passwords
+// secrets.h: wifi passwords
 const char* ssid     = "mySSID";        
 const char* password = "myWIFIpassword";
 */
