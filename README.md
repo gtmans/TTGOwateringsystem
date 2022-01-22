@@ -3,6 +3,8 @@
   The goal of this project is to create a wireless sensoring system that controls my watering system (a rainbird raincomputer)
   Whenever one of the soilsensors signals the ground is to dry it triggers a relay that gives input to the raincomputer  
 
+![ttgo-water-DHT11](https://user-images.githubusercontent.com/96861311/150639059-e4c2bfb7-3b94-4467-84b0-293fc4706556.jpg)
+
   But first I built a testing system(weatherstation). I started with these 3 modules of prox 12 euro each
   - LilyGO TTGO T-Display V1.1 ESP32 - met 1.14 inch TFT Display
   - LilyGO TTGO T-Higrow ESP32 - BME280 Sensor
@@ -40,6 +42,8 @@
     After that time readings are stored to eeprom and read from eeprom when starting up
     
     Next step is to create the base (client) station with humidity threshold setup and a relais
+    
+    ![ttgo-water-0 9display](https://user-images.githubusercontent.com/96861311/150639033-a90b288c-eefd-4a6d-8f29-627297b8e9ea.jpg)
     
     2021-01 
     Built a client based on LilyGO TTGO ESP8266 with 0.91 inch OLED Display
