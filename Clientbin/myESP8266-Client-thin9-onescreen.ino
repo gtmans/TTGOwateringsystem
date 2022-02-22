@@ -95,9 +95,9 @@ bool sensor1serverup;
 bool sensor2serverup;
 
 //WIFI configuration
-#include "gewoon_secrets.h"
+#include "secrets.h"
 /*
-// gewoon_secrets.h: wifi passwords
+// secrets.h: wifi passwords
 const char* ssid     = "mySSID";        
 const char* password = "myWIFIpassword";
 */
