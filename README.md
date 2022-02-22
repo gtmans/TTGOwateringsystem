@@ -49,6 +49,7 @@
     Built a client based on LilyGO TTGO ESP8266 with 0.91 inch OLED Display
     Started testing:
     
-    test1: 2 servers 2 min online every 70 minutes with 800Ma lipo lasting 21 days!   
-    test2: 2 servers 1 min online every 70 minutes with 800Ma lipo lasting since 2022-20-01
+    test1: 2 servers 2 min online every 70 minutes with 800Ma  lipo lasting 21 days!   
+    test2: 2 servers 1 min online every 70 minutes with 800Ma  lipo lasting 32 days (2022-20-01 till 2022-21-02)
+    test3: 1 servers 1 min online every 70 minutes with 1500Ma lipo lasting from 2022-22-02 till 
     
