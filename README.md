@@ -51,5 +51,5 @@
     
     test1: 2 servers 2 min online every 70 minutes with 800Ma  lipo lasting 21 days!   
     test2: 2 servers 1 min online every 70 minutes with 800Ma  lipo lasting 32 days (2022-20-01 till 2022-21-02)
-    test3: 1 servers 1 min online every 70 minutes with 1500Ma lipo lasting from 2022-22-02 till 
+    test3: 1 servers 1 min online every 70 minutes with 1500Ma lipo lasting from 2022-26-02 till 
     
