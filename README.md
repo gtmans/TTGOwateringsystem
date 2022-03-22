@@ -6,7 +6,7 @@
 ![ttgo-water-DHT11](https://user-images.githubusercontent.com/96861311/150639059-e4c2bfb7-3b94-4467-84b0-293fc4706556.jpg)
 
   But first I built a testing system(weatherstation). I started with these 3 modules of prox 12 euro each
-  - LilyGO TTGO T-Display V1.1 ESP32 - met 1.14 inch TFT Display
+  - LilyGO TTGO T-Display V1.1 ESP32 - with 1.14 inch TFT Display
   - LilyGO TTGO T-Higrow ESP32 - BME280 Sensor
   - LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor (its easier to buy 2 of the same Higrows but I got stuck with these)
 
@@ -51,5 +51,10 @@
     
     test1: 2 servers 2 min online every 70 minutes with 800Ma  lipo lasting 21 days!   
     test2: 2 servers 1 min online every 70 minutes with 800Ma  lipo lasting 32 days (2022-20-01 till 2022-21-02)
-    test3: 1 servers 1 min online every 70 minutes with 1500Ma lipo lasting from 2022-26-02 till 
+    test3: 1 servers 1 min online every 70 minutes with 1500Ma lipo lasting from 2022-26-02 till (ongoig)
+    
+    2022-03 new perspective: ESPNOW
+    Read about ESPNOW and did some tests. Started rewriting the code by using ESPNOW and added a lowpower client using D1 mini & capacitive soil sensor v2.0
+    The lipo powered sensors in the garden will wake-up ever 70 minutes and send a message to the client and then check if message is received and goes to deepsleep.   
+    If not it will wait 5 seconds and retry 3 times before going to deepsleep.
     
