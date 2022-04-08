@@ -51,7 +51,7 @@
     
     test1: 2 servers 2 min online every 70 minutes with 800Ma  lipo lasting 21 days!   
     test2: 2 servers 1 min online every 70 minutes with 800Ma  lipo lasting 32 days (2022-20-01 till 2022-21-02)
-    test3: 1 servers 1 min online every 70 minutes with 1500Ma lipo lasting from 2022-26-02 till (ongoig)
+    test3: 1 servers 1 min online every 70 minutes with 1500Ma lipo lasting 40 days (2022-26-02 till 2022-06-04)
     
     2022-03 new perspective: ESPNOW
     Read about ESPNOW and did some tests. Started rewriting the code by using ESPNOW and added a lowpower client using D1 mini & capacitive soil sensor v2.0
