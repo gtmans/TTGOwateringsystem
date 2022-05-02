@@ -11,7 +11,7 @@
 
 #include <SPI.h>
 #include <LoRa.h>
-#include "board_def.h"        // settings of T-Higrow LoRa Shield 
+#include "lora_board_def.h"        // settings of T-Higrow LoRa Shield 
 #include "EEPROM.h"
 int eeprom_read1;
 int eeprom_read2;
