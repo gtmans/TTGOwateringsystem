@@ -1,6 +1,7 @@
 /* LoRaReceiver-higrow to use with LoRaSender-higrow
  * for (ESP32 Dev Module) LilyGO TTGO T3 LoRa32 868MHz V2.1.6 ESP32
  * reads text records from lorasenders higrow
+ * Mans Rademaker 2022
  */
 #include <SPI.h>
 #include <LoRa.h>
