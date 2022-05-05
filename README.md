@@ -61,3 +61,4 @@
     2022-4 D1 mini V3.1 with capacitive soilsensor v2.0 getting 5v from LOLIN batteryshield v1.3 (every 70 minuten in deepsleep) with 800ma lipo is no success: lasts   
     only about 4 days! Going on with ESPNOW and reading things about LORA ...  
     
+    2022-05 more in the readme.dd in the lorawan directory
