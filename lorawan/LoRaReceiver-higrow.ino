@@ -19,9 +19,9 @@
 bool eeprom       = true;        // SET! store last read values in eeprom
 bool espres       = false;       // SET! restart ESP every 60 min to avoid hanging(set value interval below)
 bool debug        = false;       // SET! dump incoming string to screen or just their values
-bool sndextramsg  = false;       // SET! send 2 or 1 confirmation message
-bool doreply      = false;       // SET! send confirmation message or not
-bool usewifi      = false;       // SET! use wifi 2 get timestamp
+bool sndextramsg  = true;        // SET! send 2 or 1 confirmation message
+bool doreply      = true;        // SET! send confirmation message or not
+bool usewifi      = true;        // SET! use wifi 2 get timestamp
 long interval     = 3600000;     // SET! interval 60 minutes to restart ESP every 60 min to avoid hanging
 
 #define NrSensors 2              // SET!
