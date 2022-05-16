@@ -52,7 +52,7 @@
     test1: 2 servers 2 min online every 70 minutes with 800Ma  lipo lasting 21 days!   
     test2: 2 servers 1 min online every 70 minutes with 800Ma  lipo lasting 32 days (2022-20-01 till 2022-21-02)
     test3: 1 servers 1 min online every 70 minutes with 1500Ma lipo lasting 40 days (2022-26-02 till 2022-06-04)
-    
+     
     2022-03 new perspective: ESPNOW
     client: LilyGO TTGO ESP8266 - with 0.91 inch OLED Display
     server: LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor 
@@ -62,7 +62,9 @@
     
     2022-4 D1 mini V3.1 with capacitive soilsensor v2.0 getting 5v from LOLIN batteryshield v1.3 (every 70 minuten in deepsleep) with 800ma lipo is no success: lasts   
     only about 4 days! Going on with ESPNOW and reading things about LORA ...  
-    
+   
+   ![lora-receiver](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/lora-receiver.jpg)
+   
     2022-05 Started Lorawan server and client. Is working but the client stops working after some time .... 
     more in the readme.dd in the lorawan directory
     client: LilyGO TTGO T3 LoRa32 868MHz V2.1.6 ESP32
