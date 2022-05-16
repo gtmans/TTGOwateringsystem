@@ -10,6 +10,8 @@ To test and understand how it works I built a sort of LORANOW construction mysel
 The sensor modules send their readings to the client module which send a confirmation message to the sender. 
 If confirmed the sender goes to deepsleep for 70 minutes (max. reliable time) In this test program time is 5 minutes.
 
+![lora-transmitter](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/lora-transmitter.jpg)
+   
 The LoRaReceiver-Higrow.ino is for for (ESP32 Dev Module):LilyGO TTGO T3 LoRa32 868MHz V2.1.6 ESP32 and 
 the LoRaSender-Higrow.ino   is for LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor with LilyGO TTGO T-Higrow LoRa Shield - 868MHz
 First power measurements of this sender setup is sleep 0,02mA/awake 40mA/lora activity 40-55mA where WIFI uses prox. 125 mA
@@ -30,6 +32,7 @@ To debug I ruled out problem is not:
 - use of send after receive
 - use of eeprom
 - avoided by automatic ESP restart of receiver every 60 minutes
+- memory leakage (it leaks some memory because of the strings used but that is not the cause of the stop-receiving situation)
 
 I ordered a new LilyGO TTGO T3 LoRa32 868MHz V1.0 ESP32 to test that is is not a faulty module and am waiting for delivery
 2022-05-07 The V1 model has the same "hang" problem
