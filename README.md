@@ -56,9 +56,10 @@
     2022-03 new perspective: ESPNOW
     Read about ESPNOW and did some tests. Started rewriting the code by using ESPNOW and added a lowpower client using D1 mini & capacitive soil sensor v2.0
     The lipo powered sensors in the garden will wake-up ever 70 minutes and send a message to the client and then check if message is received and goes to deepsleep.   
-    If not it will wait 5 seconds and retry 3 times before going to deepsleep.
+    If not it will wait 5 seconds and retry 3 times before going to deepsleep. With 800Ma lipo lasting prox 50 days. Sample files in ESPNOW directory
     
     2022-4 D1 mini V3.1 with capacitive soilsensor v2.0 getting 5v from LOLIN batteryshield v1.3 (every 70 minuten in deepsleep) with 800ma lipo is no success: lasts   
     only about 4 days! Going on with ESPNOW and reading things about LORA ...  
     
-    2022-05 more in the readme.dd in the lorawan directory
+    2022-05 Started Lorawan server and client. Is working but the client stops working after some time .... 
+    more in the readme.dd in the lorawan directory
