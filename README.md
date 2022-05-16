@@ -54,6 +54,8 @@
     test3: 1 servers 1 min online every 70 minutes with 1500Ma lipo lasting 40 days (2022-26-02 till 2022-06-04)
     
     2022-03 new perspective: ESPNOW
+    client: LilyGO TTGO ESP8266 - with 0.91 inch OLED Display
+    server: LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor 
     Read about ESPNOW and did some tests. Started rewriting the code by using ESPNOW and added a lowpower client using D1 mini & capacitive soil sensor v2.0
     The lipo powered sensors in the garden will wake-up ever 70 minutes and send a message to the client and then check if message is received and goes to deepsleep.   
     If not it will wait 5 seconds and retry 3 times before going to deepsleep. With 800Ma lipo lasting prox 50 days. Sample files in ESPNOW directory
@@ -63,3 +65,6 @@
     
     2022-05 Started Lorawan server and client. Is working but the client stops working after some time .... 
     more in the readme.dd in the lorawan directory
+    client: LilyGO TTGO T3 LoRa32 868MHz V2.1.6 ESP32
+    server: LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor with LilyGO TTGO T-Higrow LoRa Shield - 868MHz
+    
