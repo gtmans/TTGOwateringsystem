@@ -70,3 +70,4 @@
     client: LilyGO TTGO T3 LoRa32 868MHz V2.1.6 ESP32
     server: LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor with LilyGO TTGO T-Higrow LoRa Shield - 868MHz
     
+   ![lora-transmitter](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/lora-transmitter.jpg)
