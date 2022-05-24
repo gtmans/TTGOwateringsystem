@@ -66,7 +66,7 @@
    ![lora-receiver](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/lora-receiver.jpg)
    
     2022-05 Started Lorawan server and client. Is working but the client stops working after some time .... 
-    more in the readme.md in the lorawan directory: https://github.com/gtmans/TTGOwateringsystem/blob/main/lorawan/README.md
+    more in the readme.md in the lorawan directory: https://github.com/gtmans/TTGOwateringsystem/blob/main/lorawan/README.md 
     client: LilyGO TTGO T3 LoRa32 868MHz V2.1.6 ESP32
     server: LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor with LilyGO TTGO T-Higrow LoRa Shield - 868MHz
     
