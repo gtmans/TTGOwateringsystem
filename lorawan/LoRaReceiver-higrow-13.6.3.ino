@@ -1,25 +1,8 @@
 /* com 16 for 2.0 board com 18 for 1.0 board seperate antenna
  * \Arduino\LORAWAN\TTGO-LoRa-Series-master\LoRaReceiver\LoRaReceiver-higrow-13 to use with
- * \Arduino\LORAWAN\TTGO-LoRa-Series-master\LoRaSender\LoRaSender-higrow-10.5
+ * \Arduino\LORAWAN\TTGO-LoRa-Series-master\LoRaSender\LoRaSender-higrow-10.7
  * for (ESP32 Dev Module):LilyGO TTGO T3 LoRa32 868MHz V2.1.6 ESP32
  * reads text records from lorasenders higrow
-*/
-/* LoRaReceiver-higrow to use with LoRaSender-higrow
- * for (ESP32 Dev Module) LilyGO TTGO T3 LoRa32 868MHz V2.1.6 ESP32
- * reads text records from lorasenders higrow
- * 
- *   //##1 try to parse packet
-    int packetSize = LoRa.parsePacket();
-    if (packetSize) {
-    // received a packet
-    Serial.print("Received packet '");
-
-    // ##2 read packet
-    while (LoRa.available()) {
-      String LoRaData = LoRa.readString();
-      Serial.print(LoRaData); 
-    }
-
  */
 bool espres       = false;       // SET! restart ESP every 60 min to avoid hanging(set value interval below)
 bool debug        = false;       // SET! dump incoming string to screen or just their values
