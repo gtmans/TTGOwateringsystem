@@ -44,4 +44,6 @@ I ordered a new LilyGO TTGO T3 LoRa32 868MHz V1.0 ESP32 to test that is is not a
 - with horizontal antennas
 - with max radiopower
 I made several adjustments and the test programs LoRaReceiver-higrow-16 and LoRaSender-higrow-10.7 (in workingdir) work OK and are in test
-Integrated Blynk dashboard
+I integrated Blynk dashboard (where you can set the threshold and check all important parameters):
+
+![blynk_dash](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/Blynk-dashboard%202022-06-06%20162047.png)
