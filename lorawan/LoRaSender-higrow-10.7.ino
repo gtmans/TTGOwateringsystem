@@ -1,7 +1,6 @@
-/* com 8(S2) 6(S1)
- * \Arduino\LORAWAN\TTGO-LoRa-Series-master\LoRaSender\LoRaSender-higrow-10.7
+/* \Arduino\LORAWAN\TTGO-LoRa-Series-master\LoRaSender\LoRaSender-higrow-10.7
  * to use with
- * \Arduino\LORAWAN\TTGO-LoRa-Series-master\LoRaReceiver-higrow-14.4
+ * \Arduino\LORAWAN\TTGO-LoRa-Series-master\LoRaReceiver-higrow-16
  * for (ESP32 Dev Module):
  * LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor with LilyGO TTGO T-Higrow LoRa Shield - 868MHz
  * 
