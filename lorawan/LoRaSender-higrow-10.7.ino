@@ -1,13 +1,14 @@
 /* com 8(S2) 6(S1)
  * \Arduino\LORAWAN\TTGO-LoRa-Series-master\LoRaSender\LoRaSender-higrow-10.7
  * to use with
- * \Arduino\LORAWAN\TTGO-LoRa-Series-master\LoRaReceiver-higrow-13.6
+ * \Arduino\LORAWAN\TTGO-LoRa-Series-master\LoRaReceiver-higrow-14.4
  * for (ESP32 Dev Module):
  * LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor with LilyGO TTGO T-Higrow LoRa Shield - 868MHz
  * 
  * sends sensor reading as coded text to LORA T3 LoRa32 oled
  * then waits for confirmation message and goes to sleep (for TTGO HIGROW DHT11)
  */
+#define USE_INSIDE            // reduce radiosignal
 
 #include <SPI.h>
 #include <LoRa.h>
@@ -70,7 +71,7 @@ float temp;                   // Stores temperature value in Celcius
 
 // deepsleep settings
 #define uS_TO_S_FACTOR 1000000  //Conversion factor for micro seconds to seconds
-int sleepmins = 5;              //#minutes 2 sleep 70max;
+int sleepmins = 60;             //#minutes 2 sleep 70max;
 int sleeptime = sleepmins * 60; // 1 mins * 60 seconds
 
 void setup()
@@ -147,6 +148,14 @@ if (measure){
       Serial.println("Starting LoRa failed!");
       while (1);
   } else {Serial.println("Lora initialised!");}
+
+  #ifdef USE_INSIDE
+    LoRa.setTxPower(3);      // txPower - TX power in dB, defaults to 17
+  #else                      // Supported values are 2 to 20
+//    LoRa.setTxPower(17);
+    LoRa.setTxPower(8);
+  #endif  
+
   if (usesyncword){
     //##5 Change sync word (0xF3) to match the receiver
     // The sync word assures you don't get LoRa messages from other LoRa transceivers
@@ -278,6 +287,7 @@ for (int j = 0; j <maxSndTimes; j++) {
           digitalWrite    (SOIL_PIN, LOW);  
           digitalWrite    (4, LOW); //turn off GPIO16 
           Serial.println  ("Going to sleep for  " + String(sleeptime/60) + " Minutes");
+//        delay           (20000);// + 20 seconds makes deepsleep 60mins exact 60 mins
           delay           (200);
           esp_deep_sleep_start();  
           break;          // never reached           
