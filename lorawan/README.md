@@ -39,6 +39,9 @@ I ordered a new LilyGO TTGO T3 LoRa32 868MHz V1.0 ESP32 to test that is is not a
 
 2022-05-09 I discovered something interesting because the serial monitor kept on running longer as usual: The main loop keeps running while there are no more messages received (LoRa.parsePacket() does not get true). Every 60 mins it still does "resetting looptimer" as programmed. So it does not hang but stops receiving ....
 
-Anybody ideas plz.
-
-2022 may 24 For now I think my problems were caused by testing all modules within centimeters apart fro eachother
+2022 06-06 I discovered that my problems were caused by: 
+- testing all modules within centimeters apart from eachother
+- with horizontal antennas
+- with max radiopower
+I made several adjustments and the test programs LoRaReceiver-higrow-16 and LoRaSender-higrow-10.7 (in workingdir) work OK and are in test
+Integrated Blynk dashboard
