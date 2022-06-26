@@ -1,4 +1,4 @@
-### PLEASE Be aware that I am a starter/rookie and this is an ongoing project! ####
+### PLEASE Be aware that this is an ongoing project! ####
 
 The goal of this project is to create a wireless sensoring system that controls my watering system (a rainbird raincomputer) 
 Whenever one of the soilsensors signals the ground is to dry it triggers a relay that gives input to the raincomputer
@@ -48,6 +48,8 @@ I integrated Blynk dashboard (where you can set the threshold and check all impo
 
 ![blynk_dash](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/Blynk-dashboard%202022-06-06%20162047.png)
 
-2022 06-13 1st calculation of endurance is 179 days on a 800 mA lipo with sleeptime of 60 minutes (based on a test with 5 minutes sleepingtime)
+2022-06-13 1st calculation of endurance is 179 days on a 800 mA lipo with sleeptime of 60 minutes (based on a test with 5 minutes sleepingtime)
 
+2022-06-26 System up and running! (pics)
 ![LoRa1.0U8G2case](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/LoRa1.0U8G2case.png)
+![gardensensor](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/lorasender-case-garden.png)
