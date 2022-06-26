@@ -26,20 +26,9 @@ After sending the sender waits for a confirmation message by using LoRa.receive(
 This setup is working perfectly with 2 sensors and 1 receiver exept for the fact that the receiver unit stops working after a few hours (12-36 sender messages)...
 No clue at all where it stops - unit seems to hang but display stays on - serial monitor stops after some time (windows)
 
-To debug I ruled out problem is not:
-- use of WIFI
-- use of time from internet
-- use of send after receive
-- use of eeprom
-- avoided by automatic ESP restart of receiver every 60 minutes
-- memory leakage (it leaks some memory because of the strings used but that is not the cause of the stop-receiving situation)
+2022-05-09 Seen something interesting because the serial monitor kept on running longer as usual: The main loop keeps running while there are no more messages received (LoRa.parsePacket() does not get true). Every 60 mins it still does "resetting looptimer" as programmed. So it does not hang but stops receiving ....
 
-I ordered a new LilyGO TTGO T3 LoRa32 868MHz V1.0 ESP32 to test that is is not a faulty module and am waiting for delivery
-2022-05-07 The V1 model has the same "hang" problem
-
-2022-05-09 I discovered something interesting because the serial monitor kept on running longer as usual: The main loop keeps running while there are no more messages received (LoRa.parsePacket() does not get true). Every 60 mins it still does "resetting looptimer" as programmed. So it does not hang but stops receiving ....
-
-2022 06-06 I discovered that my problems were caused by: 
+2022 06-06 Problems solved. My problems were caused by: 
 - testing all modules within centimeters apart from eachother
 - with horizontal antennas
 - with max radiopower
