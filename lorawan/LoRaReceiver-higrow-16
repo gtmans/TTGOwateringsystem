@@ -23,9 +23,9 @@
 
 #ifdef  USE_BLYNK
   #define BLYNK_PRINT Serial
-  #define BLYNK_TEMPLATE_ID "TMPL3538963K"                      // SET!
+  #define BLYNK_TEMPLATE_ID "TMPL3546453K"                      // SET!
   #define BLYNK_DEVICE_NAME "mysecretgarden                     // SET!
-  #define BLYNK_AUTH_TOKEN  "T367v69vb867j945g06760w4j6049867"  // SET!
+  #define BLYNK_AUTH_TOKEN  "T367v69vb867zvxczvc760w4j6049867"  // SET!
   #include <BlynkSimpleEsp32.h>
   bool flip;                     // for heartbeat led blynk
   char auth[] = BLYNK_AUTH_TOKEN;
