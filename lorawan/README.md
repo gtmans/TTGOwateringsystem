@@ -40,5 +40,7 @@ I integrated Blynk dashboard (where you can set the threshold and check all impo
 2022-06-13 1st calculation of endurance is 179 days on a 800 mA lipo with sleeptime of 60 minutes (based on a test with 5 minutes sleepingtime)
 
 2022-06-26 System up and running! (pics)
+
+![exploded](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/case%202022-06-25%20142952.png)
 ![LoRa1.0U8G2case](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/LoRa1.0U8G2case.png)
 ![gardensensor](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/lorasender-case-garden.png)
