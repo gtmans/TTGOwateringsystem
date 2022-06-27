@@ -65,7 +65,7 @@
   #define BLYNK_PRINT Serial
   #if OLDLORA     // I have 2 different boards they use different template                             
     #define BLYNK_TEMPLATE_ID "TMPL878asd6f"                      // SET!
-    #define BLYNK_DEVICE_NAME "gewoontuin"                        // SET!
+    #define BLYNK_DEVICE_NAME "mygarden"                          // SET!
     #define BLYNK_AUTH_TOKEN  "TKM9cdkslfji43566j6836j4654Wyzp8"  // SET!
   #else
     #define BLYNK_TEMPLATE_ID "TMPLklfdsj6Y"
@@ -73,10 +73,10 @@
     #define BLYNK_AUTH_TOKEN  "igpogiafgmkJHJYqwetHupoiflcdxkmU"
   #endif
   #include <BlynkSimpleEsp32.h>
-  bool flip;                     // for heartbeat led blynk
-  char auth[] = BLYNK_AUTH_TOKEN;
-  int TsinceS1;                  // minutes gone since last reading sensor 1
-  int TsinceS2;                  // minutes gone since last reading sensor 2
+  bool  flip;                     // for heartbeat led blynk
+  char  auth[] = BLYNK_AUTH_TOKEN;
+  int       TsinceS1;             // minutes gone since last reading sensor 1
+  int       TsinceS2;             // minutes gone since last reading sensor 2
   BlynkTimer timer;
   WidgetLED led1(V9);
   WidgetLED led2(V14);
@@ -121,7 +121,7 @@
   #include <WiFi.h>
   #include <WiFiUdp.h>
   #include <WiFiClient.h>
-  #include "gewoon_secrets.h"                   //or use 2 lines below
+  #include "my_secrets.h"                       //or use 2 lines below
   //#define WIFI_SSID       "yourWIFISSID"      // ssid
   //#define WIFI_PASSWORD   "yourWIFIPassword"  // password
   //RTC
@@ -175,14 +175,12 @@ long   freememstart;
 String formattedDate="2018-05-28T16:12:34Z";
 String TimeStamp="99:99";
 bool   LCDon=true;
-
 String msg;
 String STHours;
 String STMinutes;
 int    TMinutes;
 int    PrevMins[NrSensors]={0,0};
 int    gemhum=15;
-
 
 #if USE_U8G2
   #include <U8g2lib.h>
@@ -215,7 +213,6 @@ int    gemhum=15;
   // process received value
   Serial.println    ("*blynk switch");
   resettime();
-  // displayThresh(); // show switch is working later adapt to reset time function
   }
   
   // This function is called every time the device is connected to the Blynk.Cloud
@@ -317,7 +314,6 @@ void setup()
         digitalWrite           (OLED_RST, HIGH);
     }
 
-
     pinMode                    (BUT_IN, INPUT);
     pinMode                    (LED_IN, OUTPUT);
   
@@ -329,7 +325,6 @@ void setup()
       u8g2.begin               ();
       u8g2.setContrast         (3);            // x from 0 to 255 works, but do not disable oled. value x=0 still display some data..
       u8g2.clearBuffer         ();
-//    u8g2.setFont             (u8g2_font_courB08_tf);   // 10h https://github.com/olikraus/u8g2/wiki/fntgrpadobex11#courb10
       u8g2.setFont             (u8g2_font_courB10_tf);   // 16h https://github.com/olikraus/u8g2/wiki/fntgrpadobex11#courb10
       u8g2.setCursor           (0,16);
       u8g2.print               (temp.substring(t-18,t-3)); 
@@ -350,9 +345,9 @@ void setup()
       WiFi.begin               (ssid,password);
       Serial.print             (msg);
       #if USE_U8G2
-        u8g2.setCursor        (0,32);
-        u8g2.print            (msg); 
-        u8g2.sendBuffer       ();
+        u8g2.setCursor         (0,32);
+        u8g2.print             (msg); 
+        u8g2.sendBuffer        ();
       #else
         display.clear          ();
         Serial.print           (msg);
@@ -464,8 +459,6 @@ void setup()
     #if USE_EEPR
       ReadFromEeprom          ();
       SetLeds                 ();
-//      if (TsinceS1<=0){TsinceS1=120;}
-//      if (TsinceS2<=0){TsinceS2=120;}
     #endif 
 
 }
@@ -473,9 +466,9 @@ void setup()
 // ########################### LOOP  ###########################
 
 void loop(){
+
   unsigned long currentMillis = millis(); 
   flop++;                     //display heartbeat on oled
-//if (flop>25000){            // 2.5 secs
   if (flop>50000){            // 5   secs
     flop=0;
     if (LoRaStat=="+"){LoRaStat="x";} else {LoRaStat="+";}
@@ -483,7 +476,6 @@ void loop(){
 
     #if  USE_BLYNK
     mytimer++;
-//  if (mytimer==20){          // prox 1 min set leds and blynk values
     if (mytimer==10){          // prox 1 min set leds and blynk values
         mytimer=0;
         SetLeds();
@@ -613,9 +605,9 @@ void loop(){
             delay (250);
           #endif
 
-          S = SN.toInt();      
-          ParseReadings(S,true);          // store data in arrays and update counter                      
-          LoRaStat = "R";
+          S = SN.toInt  ();      
+          ParseReadings (S,true);// store data in arrays and update counter                      
+          LoRaStat  =   "R";
           
           #if DEBUG
             displayDebug();
@@ -623,7 +615,7 @@ void loop(){
             displayOled();          
           #endif
 
-          #if SND_MSGX     //SEND AGAIN 2 BE SURE        
+          #if SND_MSGX        //SEND AGAIN 2 BE SURE        
             delay             (1000); 
             Serial.print      ("sending  :");   
             Serial.println    (myMessage);  
@@ -709,7 +701,7 @@ void codit(String secretmessage, bool mydir){ // mydir true => encrypt false => 
   Serial.print      (",");
   Serial.print      (mydir);
   Serial.println    (")");
-  msgout="";
+  msgout      =     "";
   Serial.print      ("secret   :");
   Serial.println    (secretmessage);
   for (int i = 0; i < secretmessage.length(); i++) {
@@ -725,11 +717,11 @@ void codit(String secretmessage, bool mydir){ // mydir true => encrypt false => 
       }
       msgout += subst;
   }
-  Serial.print      ("converted:");
-  Serial.println    (msgout);
+  Serial.print          ("converted:");
+  Serial.println        (msgout);
   if (secretmessage.length()!=msgout.length()){
-    Serial.println  ("Error: output string wrong length!");
-    msgout =        secretmessage;
+    Serial.println      ("Error: output string wrong length!");
+    msgout =            secretmessage;
   }
 }
 
@@ -743,7 +735,6 @@ void codit(String secretmessage, bool mydir){ // mydir true => encrypt false => 
           sentence="12:129999999999999999999912:1299999999999999999999";
       }
       EEPROM.writeString(0, sentence);
-//    EEPROM.writeInt   (sentence.length()+1,Threshold); 
       EEPROM.writeInt   (60,Threshold); 
       EEPROM.commit     ();
       #if DEBUG
@@ -774,7 +765,6 @@ void codit(String secretmessage, bool mydir){ // mydir true => encrypt false => 
         Serial.print      (sentence);
         Serial.print      (" long:");
         Serial.println    (sentence.length());
-//      Threshold = EEPROM.readInt(51);
         Threshold = EEPROM.readInt(60);
         Serial.print      ("Read Threshold:");
         Serial.println    (Threshold);
@@ -949,7 +939,6 @@ void displayOled(){
      u8g2.sendBuffer       ();
     }    
    #else
-//     display.setTextAlignment   (TEXT_ALIGN_LEFT);
      display.clear        ();
      display.drawString   (0    ,0, SensTim [0]);               // timestamp of latest message
      display.drawString   (64   ,0, SensTim [1]);
@@ -993,21 +982,21 @@ void resettime(){    // simulate last update is now
      int pos         =  formattedDate.indexOf("T");
      TimeStamp       =  formattedDate.substring(pos+1, formattedDate.length()-1-3);  
      GetMinutes         (TimeStamp);
-     SensTim [0] = TimeStamp;
-     SensTim [1] = TimeStamp;
-     PrevMins[0] = TMinutes;     
-     PrevMins[1] = TMinutes;     
-     TsinceS1    = 0;
-     TsinceS2    = 0;
-     WriteToEeprom ();
+     SensTim [0]     =  TimeStamp;
+     SensTim [1]     =  TimeStamp;
+     PrevMins[0]     =  TMinutes;     
+     PrevMins[1]     =  TMinutes;     
+     TsinceS1        =  0;
+     TsinceS2        =  0;
+     WriteToEeprom();
      SetLeds();
 }
 void SetLeds(){ 
-//     Serial.println    ("*SetLeds()");
-     formattedDate   =  timeClient.getFormattedDate();
-     int pos         =  formattedDate.indexOf("T");
-     TimeStamp       =  formattedDate.substring(pos+1, formattedDate.length()-1-3);
-     GetMinutes         (TimeStamp);
+//     Serial.println     ("*SetLeds()");
+     formattedDate   =    timeClient.getFormattedDate();
+     int pos         =    formattedDate.indexOf("T");
+     TimeStamp       =    formattedDate.substring(pos+1, formattedDate.length()-1-3);
+     GetMinutes           (TimeStamp);
      TsinceS1=TMinutes-PrevMins[0]; 
      TsinceS2=TMinutes-PrevMins[1]; 
      // check if timestamp is todays
@@ -1023,16 +1012,15 @@ void SetLeds(){
      if (TsinceS1>60){led2.on();}else{led2.off();}           //if update longer than 60 minutes ago
      if (TsinceS2>60){led3.on();}else{led3.off();}           //if update longer than 60 minutes ago          
 
-      Serial.println    ("TsinceS1:"+ String(TsinceS1) + " PrevMins[0]:" + String(PrevMins[0]));
-      Serial.println    ("TsinceS2:"+ String(TsinceS2) + " PrevMins[1]:" + String(PrevMins[1]));
-
+      Serial.println      ("TsinceS1:"+ String(TsinceS1) + " PrevMins[0]:" + String(PrevMins[0]));
+      Serial.println      ("TsinceS2:"+ String(TsinceS2) + " PrevMins[1]:" + String(PrevMins[1]));
 
      #if  MIDNIGHT
      if (TsinceS1<0||TsinceS2<0){
       SensTim [0] = "00:00";
       SensTim [1] = "00:00";
-      WriteToEeprom ();
-      Serial.println    ("Midnight restart");
+      WriteToEeprom       ();
+      Serial.println      ("Midnight restart");
       delay(500);
       esp_restart();      
      }
@@ -1051,38 +1039,39 @@ void SetLeds(){
        Serial.println     (TsinceS2);
        Serial.println     ("Eepsave #0:" + EepSave[0] + " #1:" + EepSave[1]);
      #endif
-     Blynk.virtualWrite (V0 ,SensTim[0]);
-     Blynk.virtualWrite (V1 ,SensTim[1]);
-     Blynk.virtualWrite (V4 ,Humi   [0]);
-     Blynk.virtualWrite (V5 ,Humi   [1]);
-     Blynk.virtualWrite (V6 ,SensMes[0]);
-     Blynk.virtualWrite (V7 ,SensMes[1]);
-     Blynk.virtualWrite (V10,Temp   [0]);
-     Blynk.virtualWrite (V11,Temp   [1]);
-     Blynk.virtualWrite (V12,String((SensMes[0].toInt()+Temp[0])/24)); 
-     Blynk.virtualWrite (V13,String((SensMes[1].toInt()+Temp[1])/24));  
-     Blynk.virtualWrite (V17,TsinceS1);
-     Blynk.virtualWrite (V18,TsinceS2);
+     
+     Blynk.virtualWrite   (V0 ,SensTim[0]);
+     Blynk.virtualWrite   (V1 ,SensTim[1]);
+     Blynk.virtualWrite   (V4 ,Humi   [0]);
+     Blynk.virtualWrite   (V5 ,Humi   [1]);
+     Blynk.virtualWrite   (V6 ,SensMes[0]);
+     Blynk.virtualWrite   (V7 ,SensMes[1]);
+     Blynk.virtualWrite   (V10,Temp   [0]);
+     Blynk.virtualWrite   (V11,Temp   [1]);
+     Blynk.virtualWrite   (V12,String((SensMes[0].toInt()+Temp[0])/24)); 
+     Blynk.virtualWrite   (V13,String((SensMes[1].toInt()+Temp[1])/24));  
+     Blynk.virtualWrite   (V17,TsinceS1);
+     Blynk.virtualWrite   (V18,TsinceS2);
 }      
 #endif 
 
 #if USE_RELAIS
 void   checkbuttons(){
-  bool pressed = true;// can differ from board 2 board
-  if (digitalRead (lbutton)==pressed){           // left
-    Serial.print  ("left button pressed setting threshold to:");
-    if(Threshold>0){Threshold--;}
-    Serial.println(Threshold);
-    delay(500);
+  bool pressed = true;    // can differ from board 2 board
+  if (digitalRead         (lbutton)==pressed){           // left
+    Serial.print          ("left button pressed setting threshold to:");
+    if(Threshold>0)       {Threshold--;}
+    Serial.println        (Threshold);
+    delay(250);
   }
-  if (digitalRead (rbutton)==pressed){           // right
-    Serial.print  ("right button pressed setting threshold to:");   
-    if(Threshold<99){Threshold++;}
-    Serial.println(Threshold);
-    delay(500);
+  if (digitalRead         (rbutton)==pressed){           // right
+    Serial.print          ("right button pressed setting threshold to:");   
+    if(Threshold<99)      {Threshold++;}
+    Serial.println        (Threshold);
+    delay(250);
   }
-  if (digitalRead (BUT_IN)!=pressed){           // onboard button
-    Serial.print  ("onboard button pressed "); 
+  if (digitalRead         (BUT_IN)!=pressed){           // onboard button
+    Serial.print          ("onboard button pressed "); 
   #if USE_U8G2
       if (LCDon){
         u8g2.clearBuffer  (); 
@@ -1098,14 +1087,14 @@ void   checkbuttons(){
 void displayThresh(){
   #if USE_U8G2
    if (LCDon){
-    u8g2.clearBuffer  ();
-    u8g2.setFont      (u8g2_font_open_iconic_all_6x_t);//48 pix high
-    u8g2.setCursor    (0,56);
-    u8g2.print        (char(129));//setup 
-    u8g2.setCursor    (56,48);
-    u8g2.setFont      (u8g2_font_fub30_tf);//54 pix high
-    u8g2.print        (Threshold); 
-    u8g2.sendBuffer   ();
+    u8g2.clearBuffer      ();
+    u8g2.setFont          (u8g2_font_open_iconic_all_6x_t);//48 pix high
+    u8g2.setCursor        (0,56);
+    u8g2.print            (char(129));//setup 
+    u8g2.setCursor        (56,48);
+    u8g2.setFont          (u8g2_font_fub30_tf);//54 pix high
+    u8g2.print            (Threshold); 
+    u8g2.sendBuffer       ();
    }
   #endif
 }
