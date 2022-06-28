@@ -22,55 +22,41 @@
   I let hem sleep as long as possible (the most I could realise was 70 minutes). So it wakes up every 70 minutes
   and is a server for 2 minutes then goes 2 sleep A 3D printed case can be foud on Thingiverse or Github
   
-  Program myESP32_client_T-Display (this program)
-  Just 2 test things I created a sort of monster with these functions:
-  - displays several data gained from internet such as time, weather, and the 2 servers mentioned above
-  - displays screennumber (right above)
-  - displays the status of the 2 sensors ** on/ofline sensr1&1
-  - displays the health of the 2 sensors XX seen within 70 minutes
-  - screen 1 displays internet time
-  - screen 2 displays internet weather (temp, min temp, max temp, humidity, wind speed and direction) and minutes since last reading  
-  - screen 3 displays reading of the first sensor DHT11  (temp, humidity, soil humidity) and minutes since last reading
-  - screen 4 displays reading of the first sensor BME280 (temp, humidity, pressure, soil humidity) and minutes since last reading
-  - automated screen roulation
-  - all screens have a landscape mode activated by long press right button
-  - switch screens by short press right button
-  - set clarity by short press left button
-  - check server directly by long press left button
-  - a continous measuring mode
-  - a sleep mode option to save battery. Set go2sleep = true and sleeptime to nr. of milliseconds. 
-    After that time readings are stored to eeprom and read from eeprom when starting up
+  Wrote a test program: myESP32_client_T-Display
+  
+  Next step was to create the base (client) station with humidity threshold setup and a relais
     
-    Next step is to create the base (client) station with humidity threshold setup and a relais
+  ![ttgo-water-0 9display](https://user-images.githubusercontent.com/96861311/150639033-a90b288c-eefd-4a6d-8f29-627297b8e9ea.jpg)
     
-    ![ttgo-water-0 9display](https://user-images.githubusercontent.com/96861311/150639033-a90b288c-eefd-4a6d-8f29-627297b8e9ea.jpg)
+  2022-01 
+  Built a client based on LilyGO TTGO ESP8266 with 0.91 inch OLED Display
+  Started testing:
     
-    2022-01 
-    Built a client based on LilyGO TTGO ESP8266 with 0.91 inch OLED Display
-    Started testing:
-    
-    test1: 2 servers 2 min online every 70 minutes with 800Ma  lipo lasting 21 days!   
-    test2: 2 servers 1 min online every 70 minutes with 800Ma  lipo lasting 32 days (2022-20-01 till 2022-21-02)
-    test3: 1 servers 1 min online every 70 minutes with 1500Ma lipo lasting 40 days (2022-26-02 till 2022-06-04)
+  test1: 2 servers 2 min online every 70 minutes with 800Ma  lipo lasting 21 days!   
+  test2: 2 servers 1 min online every 70 minutes with 800Ma  lipo lasting 32 days (2022-20-01 till 2022-21-02)
+  test3: 1 servers 1 min online every 70 minutes with 1500Ma lipo lasting 40 days (2022-26-02 till 2022-06-04)
      
-    2022-03 new perspective: ESPNOW
-    client: LilyGO TTGO ESP8266 - with 0.91 inch OLED Display
-    server: LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor 
-    Read about ESPNOW and did some tests. Started rewriting the code by using ESPNOW and added a lowpower client using D1 mini & capacitive soil sensor v2.0
-    The lipo powered sensors in the garden will wake-up ever 70 minutes and send a message to the client and then check if message is received and goes to deepsleep.   
-    If not it will wait 5 seconds and retry 3 times before going to deepsleep. With 800Ma lipo lasting prox 50 days. Sample files in ESPNOW directory
+  2022-03 new perspective: ESPNOW
+  client: LilyGO TTGO ESP8266 - with 0.91 inch OLED Display
+  server: LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor 
+  Read about ESPNOW and did some tests. Started rewriting the code by using ESPNOW and added a lowpower client using D1 mini & capacitive soil sensor v2.0
+  The lipo powered sensors in the garden will wake-up ever 70 minutes and send a message to the client and then check if message is received and goes to deepsleep.   
+  If not it will wait 5 seconds and retry 3 times before going to deepsleep. With 800Ma lipo lasting prox 50 days. Sample files in ESPNOW directory
     
-    2022-4 D1 mini V3.1 with capacitive soilsensor v2.0 getting 5v from LOLIN batteryshield v1.3 (every 70 minuten in deepsleep) with 800ma lipo is no success: lasts   
-    only about 4 days! Going on with ESPNOW and reading things about LORA ...  
+  2022-4 D1 mini V3.1 with capacitive soilsensor v2.0 getting 5v from LOLIN batteryshield v1.3 (every 70 minuten in deepsleep) with 800ma lipo is no success: lasts   
+  only about 4 days! Going on with ESPNOW and reading things about LORA ...  
    
-   ![lora-receiver](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/lora-receiver.jpg)
-   
-    2022-05 Started Lorawan server and client. Is working but the client stops working after some time .... 
-    client: LilyGO TTGO T3 LoRa32 868MHz V2.1.6 ESP32
-    server: LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor with LilyGO TTGO T-Higrow LoRa Shield - 868MHz
+ ![lora-receiver](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/lora-receiver.jpg)
+ 
+  2022-05 Started Lorawan server and client. Is working but the client stops working after some time .... 
+  client: LilyGO TTGO T3 LoRa32 868MHz V2.1.6 ESP32
+  server: LilyGO TTGO T-Higrow ESP32 - DHT11 Sensor with LilyGO TTGO T-Higrow LoRa Shield - 868MHz
     
+
     
+the story continues here:
    more in the ![readme.md](https://github.com/gtmans/TTGOwateringsystem/blob/main/lorawan/README.md) in the lorawan directory: 
-    
-   ![lora-transmitter](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/lora-transmitter.jpg)
+
+
+![lora-transmitter](https://github.com/gtmans/TTGOwateringsystem/blob/main/pics/lora-transmitter.jpg)
 
